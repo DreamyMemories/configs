@@ -1,14 +1,15 @@
 # configs
 
-sudo apt install peco
-sudo apt install exa
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-git clone https://github.com/kareem-abdul/zsh-peco-cd.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-peco-cd
+sudo apt install peco  
+sudo apt install exa  
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-\~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions  
+git clone https://github.com/kareem-abdul/zsh-peco-cd.git ${ZSH_CUSTOM:-\~/.oh-my-zsh/custom}/plugins/zsh-peco-cd  
 
 
 Font: https://github.com/jtbx/jetbrainsmono-nerdfont
 
 Ubuntu gruvbox theme:
+``` bash 
 {
             "name": "Gruvbox Dark",
             "background": "#282828",
@@ -33,3 +34,4 @@ Ubuntu gruvbox theme:
             "white": "#A89984",
             "yellow": "#D79921"
 },
+```
