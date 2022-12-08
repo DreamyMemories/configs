@@ -1,8 +1,8 @@
 # configs
 
-sudo apt install peco  
-sudo apt install exa  
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-\~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions  
+For plugins,
+chmod +x script.sh
+./script.sh
 
 
 Font: https://github.com/jtbx/jetbrainsmono-nerdfont
