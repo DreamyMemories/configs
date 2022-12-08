@@ -70,7 +70,7 @@ CASE_SENSITIVE="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions dirhistory)
+plugins=(git zsh-autosuggestions dirhistory zsh-peco-cd)
 
 source $ZSH/oh-my-zsh.sh
 source /home/wei/.profile
@@ -105,6 +105,32 @@ if which peco &> /dev/null; then
   zle -N peco_select_history
   bindkey '^R' peco_select_history
 fi
+
+
+if [[ -z "$ZSH_CDR_DIR" ]]; then
+  ZSH_CDR_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/cdr"
+fi
+mkdir --parents "$ZSH_CDR_DIR"
+
+autoload -Uz chpwd_recent_dirs cdr
+autoload -U add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-file "$ZSH_CDR_DIR"/recent-dirs
+zstyle ':chpwd:*' recent-dirs-max 1000
+# fall through to cd
+zstyle ':chpwd:*' recent-dirs-default yes
+
+  function peco-cdr () {
+    local current_lbuffer="$LBUFFER"
+    local current_rbuffer="$RBUFFER"
+    local selected=$(cdr -l | peco --prompt 'cdr >')
+    if [ -n "$selected" ]; then
+      tokens=("${(z)selected}")
+      dir=${tokens[2]}
+      BUFFER="${current_lbuffer}${dir}${current_rbuffer}"
+      CURSOR=$#BUFFER
+    fi
+  }
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
