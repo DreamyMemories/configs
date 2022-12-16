@@ -74,7 +74,6 @@ plugins=(git zsh-autosuggestions dirhistory)
 
 source $ZSH/oh-my-zsh.sh
 source /home/wei/.profile
-eval $(thefuck --alias)
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
