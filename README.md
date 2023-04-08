@@ -5,7 +5,7 @@ chmod +x script.sh
 ./script.sh
 
 
-Font: https://github.com/jtbx/jetbrainsmono-nerdfont
+Font: https://github.com/ryanoasis/nerd-fonts/releases/download/v2.3.3/JetBrainsMono.zip
 
 Ubuntu gruvbox theme:
 ``` bash 
